@@ -22,6 +22,6 @@ class ReservaError(Exception):
     pass
 
 
-# Excepcion para duracion inválida en reservas
+# Excepcion para duracion invalida en reservas
 class DuracionInvalidaError(Exception):
     pass
