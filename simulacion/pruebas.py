@@ -109,7 +109,7 @@ def ejecutar_pruebas():
             2
         )
         
-        reserva3.confirar()
+        reserva3.confirmar()
 
         costo2 = reserva3.procesar()
 
