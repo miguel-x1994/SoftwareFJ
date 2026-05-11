@@ -17,6 +17,10 @@ from utilidades.logger import registrar_log
 
 # Funcion principal de pruebas del sistema
 def ejecutar_pruebas():
+    
+    print("\n========================================")
+    print("      SISTEMA SOFTWARE FJ")
+    print("========================================\n")
 
     # Lista para almacenar operaciones realizadas
     operaciones = []
@@ -33,9 +37,14 @@ def ejecutar_pruebas():
         )
 
         operaciones.append(cliente1)
+        
+        print("cliente registrado correctamente")
 
     except Exception as e:
-        registrar_log(str(e))
+        registrar_log(
+            "Error",
+            str(e)
+        )
 
     try:
 
@@ -49,7 +58,10 @@ def ejecutar_pruebas():
         operaciones.append(cliente2)
 
     except Exception as e:
-        registrar_log(str(e))
+        registrar_log(
+            "Error",
+            str(e)
+        )
 
     
     # RESERVA DE SALA (EXITOSA)
@@ -67,13 +79,18 @@ def ejecutar_pruebas():
             sala,
             5
         )
-
+        #confirmar reserva antes de procesar
+        reserva1.confirmar()
+        
         costo = reserva1.procesar()
 
-        print("Costo:", costo)
+        print(f"Costo reserva sala: ${costo}")
 
     except Exception as e:
-        registrar_log(str(e))
+        registrar_log(
+            "Error",
+            str(e)
+        )
 
     
     # ALQUILER DE EQUIPO
@@ -91,13 +108,18 @@ def ejecutar_pruebas():
             equipo,
             2
         )
+        
+        reserva3.confirar()
 
         costo2 = reserva3.procesar()
 
-        print("Costo alquiler:", costo2)
+        print(f"Costo alquiler: ${costo2}")
 
     except Exception as e:
-        registrar_log(str(e))
+        registrar_log(
+            "Error",
+            str(e)
+        )
 
     
     # ASESORiA ESPECIALIZADA
@@ -116,12 +138,23 @@ def ejecutar_pruebas():
             3
         )
 
+        reserva4 = Reserva(
+            cliente1,
+            asesoria,
+            3
+        )
+        
+        reserva4.confirmar()
+        
         costo3 = reserva4.procesar()
 
-        print("Costo asesoria:", costo3)
+        print("Costo asesoria: ${costo3}")
 
     except Exception as e:
-        registrar_log(str(e))
+        registrar_log(
+            "Error",
+            str(e)
+        )
 
     
     # ERROR DE DURACIoN
@@ -131,39 +164,63 @@ def ejecutar_pruebas():
         Reserva(cliente1, sala, 0)
 
     except Exception as e:
-        registrar_log(str(e))
+        
+        registrar_log(
+            "Error",
+            str(e)
+        )
 
     
     # RESERVA CANCELADA
     
     try:
 
-        reserva5 = Reserva(cliente1, sala, 1)
+        reserva5 = Reserva(
+            cliente1,
+            sala,
+            1
+        )
 
         reserva5.cancelar()
 
         print("Reserva cancelada")
 
-        registrar_log("Reserva cancelada manualmente")
+        registrar_log(
+            "Reserva cancelada manualmente"
+        )
 
     except Exception as e:
-        registrar_log(str(e))
+        registrar_log(
+            "Error",
+            str(e)
+        )
 
     
     # POLIMORFISMO
     
     try:
 
-        servicios = [sala, equipo, asesoria]
+        servicios = [
+            sala,
+            equipo,
+            asesoria
+        ]
+        
+        print("\n=== SERVICIOS DISPONIBLES ===")
 
         for servicio in servicios:
-            print(servicio.descripcion())
+            print(
+                servicio.descripcion()
+            )
 
     except Exception as e:
-        registrar_log(str(e))
+        registrar_log(
+            "Error",
+            str(e)
+        )
 
     
-    # RESERVA INVaLIDA
+    # RESERVA INVALIDA
     
     try:
 
@@ -174,4 +231,12 @@ def ejecutar_pruebas():
         )
 
     except Exception as e:
-        registrar_log(str(e))
+        registrar_log(
+            "Error",
+            str(e)
+            
+        )
+        
+    print("\n========================================")
+    print("      FIN DE PRUEBAS")
+    print("========================================")
