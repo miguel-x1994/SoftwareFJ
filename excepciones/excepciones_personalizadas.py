@@ -2,7 +2,7 @@
 Archivo: excepciones_personalizadas.py
 Autor: Miguel Eduardo Jimenez Hidalgo
 Descripcion: Este archivo contiene las excepciones personalizadas
-utilizadas en el sistema Software FJ para el manejo de errores.
+utilizadas en el sistema Software FJ para el manejo de errores. 
 
 Fecha: 2026
 """
