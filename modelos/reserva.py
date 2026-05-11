@@ -68,7 +68,7 @@ class Reserva:
         try:
             
             #verificar estado antes de procesar
-            if self.estado != "confirmada":
+            if self.estado != "Confirmada":
                 raise ReservaError(
                     "la reserva debe estar confirmada"
                 )
@@ -85,7 +85,7 @@ class Reserva:
             )
             
             #cambiar estado
-            self.estado = "procesada"
+            self.estado = "Procesada"
             
             return costo
 
