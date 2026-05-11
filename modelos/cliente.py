@@ -19,32 +19,34 @@ class Cliente(Entidad):
     def __init__(self, nombre, correo, telefono):
 
         # Atributos privados (encapsulacion)
-        self.__nombre = nombre
-        self.__correo = correo
-        self.__telefono = telefono
+        self.__nombre = nombre.strip()
+        self.__correo = correo.strip()
+        self.__telefono = telefono.strip()
 
         # Validar datos al crear el objeto
         self.validar()
 
     # Metodo para validar los datos del cliente
     def validar(self):
-
-        if len(self.__nombre.strip()) < 3:
+        
+        #validar nombre
+        if len(self.__nombre) < 3:
             raise ClienteInvalidoError(
-                "Nombre invalido"
+                "Nombre invalido. Minimo 3 caracteres."
             )
-
-        if "@" not in self.__correo:
+        # Validar Correo
+        if "@" not in self.__correo or "." not in self.__correo:
             raise ClienteInvalidoError(
                 "Correo invalido"
             )
-
+        # Validar telefono
         if not self.__telefono.isdigit():
             raise ClienteInvalidoError(
-                "Telefono invalido"
+                "Telefono invalido. Solo numeros"
             )
-
-    # Implementacion del metodo abstracto
+        return True
+    
+    # Metodo para mostar informacion del cliente
     def mostrar_info(self):
 
         return f"""
@@ -52,3 +54,12 @@ Nombre: {self.__nombre}
 Correo: {self.__correo}
 Telefono: {self.__telefono}
 """
+
+    def get_nombre(self):
+        return self.__nombre
+    
+    def get_correo(self):
+        return self.__correo
+    
+    def get_telefono(self):
+        return self.__telefono
