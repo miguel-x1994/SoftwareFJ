@@ -137,9 +137,9 @@ class AsesoriaEspecializada(Servicio):
     def descripcion(self):
 
         return f"""
-Servicio: Asesoria Especilista
+Servicio: Asesoria Especializada
 Nombre: {self.nombre}
-Assesor: {self.especialista}
+Asesor: {self.especialista}
 Tarifa base: ${self.tarifa_base}
 """
     #metodo validar
