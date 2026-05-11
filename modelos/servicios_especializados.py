@@ -140,7 +140,7 @@ class AsesoriaEspecializada(Servicio):
 Servicio: Asesoria Especilista
 Nombre: {self.nombre}
 Assesor: {self.especialista}
-Tarifa base: $[self.tarifa_base]
+Tarifa base: ${self.tarifa_base}
 """
     #metodo validar
     def validar(self):
