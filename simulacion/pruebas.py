@@ -137,18 +137,12 @@ def ejecutar_pruebas():
             asesoria,
             3
         )
-
-        reserva4 = Reserva(
-            cliente1,
-            asesoria,
-            3
-        )
         
         reserva4.confirmar()
         
         costo3 = reserva4.procesar()
 
-        print("Costo asesoria: ${costo3}")
+        print(f"Costo asesoria: ${costo3}")
 
     except Exception as e:
         registrar_log(
