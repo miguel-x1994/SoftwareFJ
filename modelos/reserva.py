@@ -58,7 +58,7 @@ class Reserva:
         self.estado = "cancelada"
         
         registrar_log(
-            "ATENCION"
+            "ATENCION",
             "Reserva cancelada"
         )
 
