@@ -31,20 +31,21 @@ class Reserva:
         self.duracion = duracion
         self.estado = "Pendiente"
 
-    # Metodo para confirmar la reserva
-    def confirmar(self):
-       
-       # verificar estado
-       if self.estado != "Pendiente":
-           raise ReservaError(
-               "Solo se pude confirar reservas pendientes"
-           )
-        self.estado = "Confirmada"
-        
-        registrar_log(
-            "INFO",
-            "Reserva confirmada correctamente"
+   # Metodo para confirmar la reserva
+def confirmar(self):
+
+    # Verificar estado
+    if self.estado != "Pendiente":
+        raise ReservaError(
+            "Solo se pueden confirmar reservas pendientes."
         )
+
+    self.estado = "Confirmada"
+
+    registrar_log(
+        "INFO",
+        "Reserva confirmada correctamente"
+    )
 
     # Metodo para cancelar la reserva
     def cancelar(self):
