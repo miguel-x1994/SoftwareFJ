@@ -185,8 +185,8 @@ def ejecutar_pruebas():
 
         print("Reserva cancelada")
 
-        registrar_log(
-            "Precaucio",
+        registrar_log(  
+            "Precaucion",         
             "Reserva cancelada manualmente"
         )
 
