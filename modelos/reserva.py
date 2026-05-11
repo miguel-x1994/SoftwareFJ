@@ -32,19 +32,19 @@ class Reserva:
         self.estado = "Pendiente"
 
    # Metodo para confirmar la reserva
-def confirmar(self):
+    def confirmar(self):
 
     # Verificar estado
-    if self.estado != "Pendiente":
-        raise ReservaError(
+        if self.estado != "Pendiente":
+            raise ReservaError(
             "Solo se pueden confirmar reservas pendientes."
         )
 
-    self.estado = "Confirmada"
+        self.estado = "Confirmada"
 
-    registrar_log(
-        "INFO",
-        "Reserva confirmada correctamente"
+        registrar_log(
+            "INFO",
+            "Reserva confirmada correctamente"
     )
 
     # Metodo para cancelar la reserva
