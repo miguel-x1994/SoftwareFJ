@@ -1,0 +1,19 @@
+[2026-05-10 21:29:47] Nombre invalido
+[2026-05-10 21:29:47] Reserva confirmada para 
+Nombre: Miguel
+Correo: migueljimenezh@unadvirtual.edu.co
+Telefono: 3104132601
+
+[2026-05-10 21:29:47] Reserva confirmada para 
+Nombre: Miguel
+Correo: migueljimenezh@unadvirtual.edu.co
+Telefono: 3104132601
+
+[2026-05-10 21:29:47] Reserva confirmada para 
+Nombre: Miguel
+Correo: migueljimenezh@unadvirtual.edu.co
+Telefono: 3104132601
+
+[2026-05-10 21:29:47] Duracion invalida
+[2026-05-10 21:29:47] Reserva cancelada manualmente
+[2026-05-10 21:29:47] Duracion invalida
