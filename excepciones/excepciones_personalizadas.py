@@ -38,3 +38,4 @@ class ReservaError(SofwareFJError):
 class DuracionInvalidaError(SofwareFJError):
     def __init__(self, mensaje):
         super().__init__(mensaje, "Error-302")
+        
