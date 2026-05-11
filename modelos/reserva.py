@@ -22,7 +22,7 @@ class Reserva:
         # Validacion de duracion
         if duracion <= 0:
             raise DuracionInvalidaError(
-                "Duracion invalida"
+                "Duracion invalida. Debe ser mayor a 0"
             )
 
         # Atributos de la reserva
@@ -33,30 +33,59 @@ class Reserva:
 
     # Metodo para confirmar la reserva
     def confirmar(self):
+       
+       # verificar estado
+       if self.estado != "Pendiente":
+           raise ReservaError(
+               "Solo se pude confirar reservas pendientes"
+           )
         self.estado = "Confirmada"
+        
+        registrar_log(
+            "INFO",
+            "Reserva confirmada correctamente"
+        )
 
     # Metodo para cancelar la reserva
     def cancelar(self):
-        self.estado = "Cancelada"
+        
+        #verificar si ya esta cancelada
+        if self.estado == "Cancelada":
+            raise ReservaError(
+                "la reserva ya fue cancelada"
+            )
+        self.estado = "cancelada"
+        
+        registrar_log(
+            "ATENCION"
+            "Reserva cancelada"
+        )
 
     # Metodo principal que procesa la reserva
     def procesar(self):
 
         try:
+            
+            #verificar estado antes de procesar
+            if self.estado != "confirmada":
+                raise ReservaError(
+                    "la reserva debe estar confirmada"
+                )
 
             # Calcular costo del servicio
             costo = self.servicio.calcular_costo(
                 self.duracion
             )
-
-            # Confirmar la reserva
-            self.confirmar()
-
+            
             # Registrar en logs
             registrar_log(
-                f"Reserva confirmada para {self.cliente.mostrar_info()}"
+                "INFO",
+                f"Reserva confirmada para {self.cliente.get_nombre()}"
             )
-
+            
+            #cambiar estado
+            self.estado = "procesada"
+            
             return costo
 
         except Exception as e:
@@ -66,6 +95,7 @@ class Reserva:
 
             # Registrar error en logs
             registrar_log(
+                "ERROR",
                 f"Error procesando reserva: {str(e)}"
             )
 
@@ -73,3 +103,18 @@ class Reserva:
             raise ReservaError(
                 "No fue posible procesar la reserva"
             ) from e
+    #Metodo para mostrar informacion
+    def mostrar_info(self):
+        
+        return f"""
+Cliente-: {self.cliente.get_nombre()}
+Servicio: {self.servicio.get_nombre()}
+Duracion: {self.duracion}
+Estado: {self.estado}
+""" 
+
+    #Metod especal str
+    def __str__(self):
+        return self.mostrar_info()
+    
+                                                                                                                                                                                                                                                                                                                                                                                                                                                         
