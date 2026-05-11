@@ -11,12 +11,18 @@ from datetime import datetime
 
 
 # Funcion para registrar mensajes en el archivo de logs
-def registrar_log(mensaje):
+def registrar_log(tipo,mensaje):
 
     # Obtener fecha y hora actual formateada
     fecha = datetime.now().strftime(
         "%Y-%m-%d %H:%M:%S"
     )
+    
+    #crear formato del log
+    log = f"[{fecha}] [{tipo.upper()}] {mensaje}"
+    
+    #Mostrar en consola
+    print(log)
 
     # Crear archivo logs.txt en modo agregar
     with open(
@@ -27,5 +33,5 @@ def registrar_log(mensaje):
 
         # Escribir mensaje con fecha en el archivo
         archivo.write(
-            f"[{fecha}] {mensaje}\n"
+            log + "\n"
         )
